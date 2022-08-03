@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="container">
+        {% for post in post_list %}
+            <div class="card m-3" style="width: 18rem;">
+                <!-- <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg" class="card-img-top" width="50" height="100" alt="Computer Hope">-->
+                <div class="card-body">
+                    
+                    <h2 class="card-title">
+                        {{post.title}}
+                    </h2>
+                    <p class="card-text">
+                        {{post.content | slice:"150"}}
+                    </p>
+                    <div class="card-text">
+                        Author: {{post.author | title}}
+                    </div>
+                    <a class="btn btn-primary" href="{% url 'blog_view' post.slug %}">read more </a> 
+                    
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+{% endblock content %}
+        <!-- JavaScript Bundle with Popper -->
